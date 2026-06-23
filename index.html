@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Rahul Gupta — SDET II & QA Automation Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+--navy:#040812;
+--navy2:#070d1a;
+--navy3:#0c1526;
+--card:#0a1020;
+--cyan:#00D4FF;
+--cyan2:#00A8CC;
+--cyan3:rgba(0,212,255,0.12);
+--amber:#F59E0B;
+--green:#10B981;
+--white:#EEF4FF;
+--muted:#6B7FA3;
+--border:rgba(0,212,255,0.12);
+--mono:'JetBrains Mono',monospace;
+--display:'Space Grotesk',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--navy);color:var(--white);font-family:var(--display);font-size:16px;line-height:1.6;overflow-x:hidden}
+
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:999;opacity:0.4}
+
+.grid-bg{position:fixed;inset:0;background-image:linear-gradient(rgba(0,212,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,212,255,0.03) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;z-index:0}
+
+.orb{position:fixed;border-radius:50%;pointer-events:none;filter:blur(80px);z-index:0}
+.orb-1{width:600px;height:600px;background:radial-gradient(circle,rgba(0,212,255,0.07) 0%,transparent 70%);top:-150px;right:-150px}
+.orb-2{width:400px;height:400px;background:radial-gradient(circle,rgba(245,158,11,0.05) 0%,transparent 70%);bottom:20%;left:-100px}
+.orb-3{width:300px;height:300px;background:radial-gradient(circle,rgba(16,185,129,0.05) 0%,transparent 70%);bottom:5%;right:10%}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 60px;height:68px;background:rgba(4,8,18,0.8);backdrop-filter:blur(24px);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:var(--mono);font-size:13px;color:var(--cyan);letter-spacing:0.08em;display:flex;align-items:center;gap:10px}
+.nav-logo::before{content:'';width:8px;height:8px;background:var(--cyan);border-radius:50%;box-shadow:0 0 12px var(--cyan);animation:pulse-dot 2s ease-in-out infinite}
+@keyframes pulse-dot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.6;transform:scale(0.8)}}
+.nav-links{display:flex;gap:36px;list-style:none}
+.nav-links a{font-size:12px;font-weight:500;color:var(--muted);text-decoration:none;letter-spacing:0.1em;text-transform:uppercase;transition:color 0.2s;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:1px;background:var(--cyan);transform:scaleX(0);transition:transform 0.2s}
+.nav-links a:hover{color:var(--cyan)}
+.nav-links a:hover::after{transform:scaleX(1)}
+.nav-hire{padding:8px 20px;background:var(--cyan);color:var(--navy);border-radius:4px;font-size:12px;font-weight:700;text-decoration:none;letter-spacing:0.06em;text-transform:uppercase;transition:background 0.2s,transform 0.15s}
+.nav-hire:hover{background:var(--cyan2);transform:translateY(-1px)}
+
+#hero{min-height:100vh;display:flex;align-items:center;padding:120px 60px 80px;position:relative;z-index:1}
+.hero-inner{max-width:1240px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.badge-row{display:flex;align-items:center;gap:12px;margin-bottom:28px}
+.badge{padding:5px 14px;border-radius:100px;font-family:var(--mono);font-size:11px;letter-spacing:0.08em;font-weight:500}
+.badge-avail{background:rgba(16,185,129,0.12);border:1px solid rgba(16,185,129,0.3);color:var(--green);display:flex;align-items:center;gap:6px}
+.badge-avail::before{content:'';width:6px;height:6px;background:var(--green);border-radius:50%;animation:pulse-dot 1.5s ease-in-out infinite}
+.badge-role{background:rgba(0,212,255,0.1);border:1px solid rgba(0,212,255,0.2);color:var(--cyan)}
+h1{font-size:clamp(44px,5.5vw,76px);font-weight:700;line-height:1.0;letter-spacing:-0.03em;color:var(--white);margin-bottom:8px}
+h1 .line2{color:transparent;-webkit-text-stroke:1px rgba(0,212,255,0.5)}
+.hero-sub{font-size:15px;color:var(--cyan);font-family:var(--mono);letter-spacing:0.06em;margin-bottom:24px;font-weight:500}
+.hero-tagline{font-size:17px;color:var(--muted);line-height:1.8;margin-bottom:40px;max-width:500px}
+.hero-tagline strong{color:var(--white);font-weight:600}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;padding:14px 30px;background:var(--cyan);color:var(--navy);font-weight:700;font-size:13px;border-radius:5px;text-decoration:none;letter-spacing:0.05em;text-transform:uppercase;transition:background 0.2s,transform 0.15s,box-shadow 0.2s;box-shadow:0 0 30px rgba(0,212,255,0.2)}
+.btn-primary:hover{background:var(--cyan2);transform:translateY(-2px);box-shadow:0 8px 40px rgba(0,212,255,0.35)}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;padding:14px 30px;border:1px solid var(--border);color:var(--white);font-size:13px;font-weight:500;border-radius:5px;text-decoration:none;letter-spacing:0.05em;text-transform:uppercase;transition:border-color 0.2s,color 0.2s,background 0.2s}
+.btn-ghost:hover{border-color:var(--cyan);color:var(--cyan);background:rgba(0,212,255,0.05)}
+
+.terminal{background:#060d1a;border:1px solid var(--border);border-radius:10px;overflow:hidden;box-shadow:0 32px 80px rgba(0,0,0,0.6),0 0 0 1px rgba(0,212,255,0.08),inset 0 1px 0 rgba(255,255,255,0.04)}
+.terminal-bar{background:#0a1422;padding:14px 18px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(255,255,255,0.05)}
+.dot{width:12px;height:12px;border-radius:50%}
+.dot:nth-child(1){background:#FF5F57}
+.dot:nth-child(2){background:#FEBC2E}
+.dot:nth-child(3){background:#28C840}
+.t-title{font-family:var(--mono);font-size:11px;color:var(--muted);margin-left:8px;letter-spacing:0.05em}
+.terminal-body{padding:24px 28px;font-family:var(--mono);font-size:12.5px;line-height:2}
+.tp{color:var(--cyan)}.tc{color:var(--white)}.tm{color:#4B5A70}.ts{color:#86EFAC}.tn{color:var(--amber)}.to{color:#A5B4FC}.te{color:var(--green)}
+.cursor{display:inline-block;width:7px;height:13px;background:var(--cyan);animation:blink 1s step-end infinite;vertical-align:middle;border-radius:1px}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+
+#stats{padding:0;background:var(--navy2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);position:relative;z-index:1}
+.stats-inner{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr)}
+.stat-item{padding:40px 44px;border-right:1px solid var(--border);position:relative;overflow:hidden;transition:background 0.3s}
+.stat-item:hover{background:rgba(0,212,255,0.03)}
+.stat-item:last-child{border-right:none}
+.stat-item::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--cyan),transparent);transform:scaleX(0);transform-origin:left;transition:transform 0.4s}
+.stat-item:hover::before{transform:scaleX(1)}
+.stat-num{font-size:56px;font-weight:700;color:var(--cyan);line-height:1;margin-bottom:8px;letter-spacing:-0.04em;font-feature-settings:'tnum'}
+.stat-num sup{font-size:30px;vertical-align:super}
+.stat-label{font-size:11px;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;font-weight:500}
+
+section{padding:110px 60px;position:relative;z-index:1}
+.section-inner{max-width:1240px;margin:0 auto}
+.section-header{margin-bottom:72px}
+.eyebrow{font-family:var(--mono);font-size:11px;color:var(--cyan);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:18px;display:flex;align-items:center;gap:14px}
+.eyebrow::before{content:'//';color:rgba(0,212,255,0.4)}
+.eyebrow::after{content:'';flex:0 0 60px;height:1px;background:linear-gradient(90deg,var(--cyan),transparent)}
+h2{font-size:clamp(30px,3.5vw,50px);font-weight:700;letter-spacing:-0.025em;color:var(--white);line-height:1.1}
+h2 .accent{color:var(--cyan)}
+
+#about{background:var(--navy)}
+.about-grid{display:grid;grid-template-columns:3fr 2fr;gap:80px;align-items:start}
+.about-text p{font-size:16px;color:var(--muted);line-height:1.85;margin-bottom:22px}
+.about-text p strong{color:var(--white);font-weight:600}
+.pullquote{margin-top:36px;padding:28px 36px;border-left:2px solid var(--cyan);background:linear-gradient(90deg,rgba(0,212,255,0.05),transparent);border-radius:0 8px 8px 0;font-size:19px;font-weight:600;color:var(--white);font-style:italic;line-height:1.5}
+.aside{display:flex;flex-direction:column;gap:16px}
+.aside-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:22px 24px;transition:border-color 0.2s,transform 0.2s}
+.aside-card:hover{border-color:rgba(0,212,255,0.3);transform:translateX(4px)}
+.aside-label{font-family:var(--mono);font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--cyan);margin-bottom:10px}
+.aside-val{font-size:14px;font-weight:600;color:var(--white);line-height:1.5}
+.aside-val .sub{font-size:12px;color:var(--muted);font-weight:400;margin-top:4px}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:8px}
+.chip-ai{padding:4px 12px;background:rgba(0,212,255,0.08);border:1px solid rgba(0,212,255,0.2);border-radius:100px;font-size:11px;color:var(--cyan);font-family:var(--mono)}
+
+#experience{background:var(--navy2)}
+.timeline{position:relative;padding-left:32px}
+.timeline::before{content:'';position:absolute;left:7px;top:8px;bottom:8px;width:1px;background:linear-gradient(180deg,var(--cyan),rgba(0,212,255,0.1))}
+.tl-item{position:relative;margin-bottom:48px}
+.tl-item:last-child{margin-bottom:0}
+.tl-dot{position:absolute;left:-29px;top:6px;width:14px;height:14px;border-radius:50%;border:2px solid var(--cyan);background:var(--navy2);z-index:1;transition:box-shadow 0.3s}
+.tl-dot.live{background:var(--cyan);box-shadow:0 0 0 4px rgba(0,212,255,0.2),0 0 20px rgba(0,212,255,0.5)}
+.tl-item:hover .tl-dot{box-shadow:0 0 16px rgba(0,212,255,0.6)}
+.tl-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:32px 36px;transition:border-color 0.25s,box-shadow 0.25s,transform 0.25s}
+.tl-card:hover{border-color:rgba(0,212,255,0.35);box-shadow:0 16px 60px rgba(0,0,0,0.4),0 0 0 1px rgba(0,212,255,0.1);transform:translateX(4px)}
+.tl-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:6px;flex-wrap:wrap}
+.tl-role{font-size:19px;font-weight:700;color:var(--white)}
+.tl-badge{padding:4px 14px;border-radius:100px;font-family:var(--mono);font-size:11px;white-space:nowrap}
+.tl-badge.live-badge{background:rgba(16,185,129,0.12);border:1px solid rgba(16,185,129,0.35);color:var(--green);animation:pulse-ring 2.5s ease-in-out infinite}
+@keyframes pulse-ring{0%,100%{box-shadow:0 0 0 0 rgba(16,185,129,0.3)}50%{box-shadow:0 0 0 6px rgba(16,185,129,0)}}
+.tl-badge.past-badge{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);color:var(--muted)}
+.tl-co{font-size:13px;font-weight:600;color:var(--cyan);letter-spacing:0.03em;margin-bottom:4px}
+.tl-meta{font-size:12px;color:var(--muted);margin-bottom:20px;display:flex;gap:18px;flex-wrap:wrap;font-family:var(--mono)}
+.tl-body{font-size:14.5px;color:var(--muted);line-height:1.8}
+.tl-body p{margin-bottom:10px}
+.tl-body p:last-child{margin-bottom:0}
+.highlights{margin-top:22px;display:flex;flex-wrap:wrap;gap:9px}
+.hl{display:flex;align-items:center;gap:7px;padding:7px 14px;background:rgba(245,158,11,0.07);border:1px solid rgba(245,158,11,0.18);border-radius:6px;font-size:12px;font-weight:600;color:var(--amber);font-family:var(--mono)}
+.hl::before{content:'▸';color:var(--amber);font-size:10px}
+
+#skills{background:var(--navy)}
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.sk-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:28px;transition:border-color 0.25s,transform 0.25s,box-shadow 0.25s;cursor:default}
+.sk-card:hover{border-color:rgba(0,212,255,0.4);transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,0.4)}
+.sk-head{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.sk-icon{width:40px;height:40px;background:rgba(0,212,255,0.08);border:1px solid rgba(0,212,255,0.18);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.sk-name{font-size:14px;font-weight:700;color:var(--white);letter-spacing:0.01em}
+.sk-chips{display:flex;flex-wrap:wrap;gap:7px}
+.sk-chip{padding:4px 11px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:4px;font-family:var(--mono);font-size:11.5px;color:var(--muted);transition:all 0.2s;cursor:default}
+.sk-chip:hover{color:var(--cyan);border-color:rgba(0,212,255,0.3);background:rgba(0,212,255,0.06)}
+
+#impact{background:var(--navy2)}
+.impact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.impact-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:32px;text-align:center;transition:border-color 0.25s,transform 0.25s,box-shadow 0.25s;position:relative;overflow:hidden}
+.impact-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,212,255,0.04),transparent);opacity:0;transition:opacity 0.3s}
+.impact-card:hover{border-color:rgba(0,212,255,0.4);transform:translateY(-6px);box-shadow:0 24px 70px rgba(0,0,0,0.5)}
+.impact-card:hover::before{opacity:1}
+.impact-icon{font-size:32px;margin-bottom:16px;display:block}
+.impact-num{font-size:52px;font-weight:700;color:var(--cyan);line-height:1;letter-spacing:-0.04em;margin-bottom:12px}
+.impact-num.zero{font-size:42px;color:var(--green)}
+.impact-desc{font-size:13px;color:var(--muted);line-height:1.65}
+.impact-desc strong{color:var(--white);display:block;margin-bottom:4px;font-size:14px}
+
+#contact{background:var(--navy);text-align:center}
+.contact-wrap{max-width:760px;margin:0 auto}
+.contact-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:72px 60px;position:relative;overflow:hidden}
+.contact-card::before{content:'';position:absolute;top:-120px;left:50%;transform:translateX(-50%);width:500px;height:500px;background:radial-gradient(circle,rgba(0,212,255,0.07) 0%,transparent 65%);pointer-events:none}
+.contact-card::after{content:'';position:absolute;inset:0;border-radius:20px;background:linear-gradient(135deg,rgba(0,212,255,0.03),transparent 50%,rgba(245,158,11,0.02));pointer-events:none}
+.contact-card h2{margin-bottom:16px;position:relative;z-index:1}
+.contact-card p{color:var(--muted);font-size:16px;line-height:1.75;margin-top:14px;margin-bottom:44px;position:relative;z-index:1}
+.contact-links{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;position:relative;z-index:1}
+.clink{display:inline-flex;align-items:center;gap:9px;padding:13px 26px;border:1px solid var(--border);border-radius:7px;color:var(--white);text-decoration:none;font-size:13px;font-weight:600;letter-spacing:0.04em;transition:all 0.2s}
+.clink:hover{border-color:var(--cyan);color:var(--cyan);background:rgba(0,212,255,0.06);transform:translateY(-2px)}
+.clink.primary{background:var(--cyan);color:var(--navy);border-color:var(--cyan);box-shadow:0 0 30px rgba(0,212,255,0.25)}
+.clink.primary:hover{background:var(--cyan2);border-color:var(--cyan2);color:var(--navy);box-shadow:0 8px 40px rgba(0,212,255,0.4)}
+
+footer{padding:28px 60px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:11.5px;color:var(--muted);position:relative;z-index:1}
+footer .fc{color:var(--cyan)}
+
+.fade-up{opacity:0;transform:translateY(28px);transition:opacity 0.7s ease,transform 0.7s ease}
+.fade-up.visible{opacity:1;transform:none}
+
+@media(max-width:1024px){
+.hero-inner{grid-template-columns:1fr;gap:48px}
+.about-grid{grid-template-columns:1fr}
+.skills-grid{grid-template-columns:repeat(2,1fr)}
+.stats-inner{grid-template-columns:repeat(2,1fr)}
+.stat-item:nth-child(2){border-right:none}
+.stat-item:nth-child(3){border-top:1px solid var(--border)}
+.impact-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:768px){
+nav{padding:0 24px}
+.nav-links,.nav-hire{display:none}
+section{padding:72px 24px}
+#stats{padding:0}
+#hero{padding:100px 24px 64px}
+.skills-grid,.impact-grid{grid-template-columns:1fr}
+.stats-inner{grid-template-columns:repeat(2,1fr)}
+footer{flex-direction:column;gap:8px;text-align:center;padding:24px}
+.contact-card{padding:40px 24px}
+.tl-card{padding:24px 22px}
+h1{font-size:44px}
+}
+@media(prefers-reduced-motion:reduce){
+.fade-up{opacity:1;transform:none;transition:none}
+.cursor,.nav-logo::before,.tl-dot.live,.tl-badge.live-badge{animation:none}
+}
+</style>
+</head>
+<body>
+<div class="grid-bg"></div>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
+
+<!-- NAV -->
+<nav>
+<div class="nav-logo">rg.sdet</div>
+<ul class="nav-links">
+<li><a href="#about">About</a></li>
+<li><a href="#experience">Experience</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#impact">Impact</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+<a href="#contact" class="nav-hire">Hire Me →</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+<div class="hero-inner">
+<div class="hero-content fade-up">
+<div class="badge-row">
+<span class="badge badge-avail">Open to Opportunities</span>
+<span class="badge badge-role">SDET II · 4+ Years</span>
+</div>
+<h1>Rahul<br/><span class="line2">Gupta.</span></h1>
+<div class="hero-sub">QA Automation Engineer · Deloitte</div>
+<p class="hero-tagline">
+I don't just find bugs — <strong>I build systems that prevent them.</strong><br/>
+Turning manual, error-prone testing into fast, scalable, intelligent automation that ships with zero-defect confidence.
+</p>
+<div class="hero-cta">
+<a href="#experience" class="btn-primary">View My Work ↓</a>
+<a href="#contact" class="btn-ghost">Get in Touch</a>
+</div>
+</div>
+<div class="terminal fade-up" style="transition-delay:0.2s">
+<div class="terminal-bar">
+<div class="dot"></div><div class="dot"></div><div class="dot"></div>
+<span class="t-title">rahul@deloitte:~/ automation-suite</span>
+</div>
+<div class="terminal-body">
+<div><span class="tp">❯ </span><span class="tc">run-suite --env prod --parallel 8</span></div>
+<div class="tm">// 550+ cases · OMS · API · Mobile · SCADA</div>
+<div>&nbsp;</div>
+<div><span class="te">✔ </span><span class="ts">Web layer&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tn">300</span><span class="tm"> passed · 0 failed</span></div>
+<div><span class="te">✔ </span><span class="ts">API layer&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tn">180</span><span class="tm"> passed · bugs ↓80%</span></div>
+<div><span class="te">✔ </span><span class="ts">Mobile / A11y&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tn">70</span><span class="tm"> passed · WCAG ✓</span></div>
+<div><span class="te">✔ </span><span class="ts">SCADA / ADMS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="tn">200</span><span class="tm"> automated · ↓70%</span></div>
+<div>&nbsp;</div>
+<div><span class="tp">❯ </span><span class="tc">check defects --prod</span></div>
+<div><span class="te">✔ </span><span class="ts">Critical escapes&nbsp;&nbsp;</span><span class="tn">0</span><span class="tm"> across 6 releases</span></div>
+<div><span class="te">✔ </span><span class="ts">Regression time&nbsp;&nbsp;&nbsp;</span><span class="tn">↓60%</span><span class="tm"> CI/CD integrated</span></div>
+<div>&nbsp;</div>
+<div><span class="tp">❯ </span><span class="tc">status</span></div>
+<div><span class="ts">OPEN</span><span class="tm"> · SDET · QA Automation · Test Engineer</span></div>
+<div><span class="tp">❯ </span><span class="cursor"></span></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- STATS -->
+<div id="stats">
+<div class="stats-inner">
+<div class="stat-item fade-up">
+<div class="stat-num">4<sup>+</sup></div>
+<div class="stat-label">Years Automation QA</div>
+</div>
+<div class="stat-item fade-up" style="transition-delay:0.1s">
+<div class="stat-num">550<sup>+</sup></div>
+<div class="stat-label">Test Cases Automated</div>
+</div>
+<div class="stat-item fade-up" style="transition-delay:0.2s">
+<div class="stat-num">80%</div>
+<div class="stat-label">Drop in Recurring API Bugs</div>
+</div>
+<div class="stat-item fade-up" style="transition-delay:0.3s">
+<div class="stat-num">0</div>
+<div class="stat-label">Critical Prod Escapes · 6 Releases</div>
+</div>
+</div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+<div class="section-inner">
+<div class="section-header fade-up">
+<div class="eyebrow">Who I Am</div>
+<h2>Quality isn't a phase.<br/>It's an <span class="accent">engineering discipline.</span></h2>
+</div>
+<div class="about-grid">
+<div class="about-text fade-up">
+<p>I'm a <strong>Software Development Engineer in Test (SDET II)</strong> with 4+ years across enterprise QA — currently at <strong>Deloitte</strong> on the Exelon ADMS project in the Utility/Energy sector, and previously at <strong>Cognizant</strong> on PetSmart's US & Canada e-commerce platforms.</p>
+<p>My approach goes beyond writing test scripts. I <strong>think like a product engineer</strong> — understanding business impact, anticipating failure points, and designing automation that scales across web, API, mobile, and cross-browser layers within Agile CI/CD workflows.</p>
+<p>I leverage <strong>AI tools</strong> — GitHub Copilot, Microsoft Copilot, and Claude — to accelerate test design, defect analysis, and documentation. Modern QA engineers should work smarter, not just harder.</p>
+<div class="pullquote">"I don't just find bugs — I build systems that prevent them."</div>
+</div>
+<div class="aside fade-up" style="transition-delay:0.15s">
+<div class="aside-card">
+<div class="aside-label">Current Role</div>
+<div class="aside-val">SDET II — Consultant<div class="sub">Deloitte · Hyderabad · Sep 2025–Present</div></div>
+</div>
+<div class="aside-card">
+<div class="aside-label">Domain Focus</div>
+<div class="aside-val">Utility / Energy — ADMS<div class="sub">OMS · SOM · DMS · SCADA workflows</div></div>
+</div>
+<div class="aside-card">
+<div class="aside-label">AI in My Stack</div>
+<div class="aside-val">
+<div class="chips">
+<span class="chip-ai">GitHub Copilot</span>
+<span class="chip-ai">MS Copilot</span>
+<span class="chip-ai">Claude AI</span>
+</div>
+</div>
+</div>
+<div class="aside-card">
+<div class="aside-label">Open To</div>
+<div class="aside-val">SDET · QA Automation Engineer · Test Engineer<div class="sub">Shift-left · Agile teams · High-reliability software</div></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+<div class="section-inner">
+<div class="section-header fade-up">
+<div class="eyebrow">Career Timeline</div>
+<h2>Where I've built,<br/>shipped, and <span class="accent">scaled quality.</span></h2>
+</div>
+<div class="timeline">
+<div class="tl-item fade-up">
+<div class="tl-dot live"></div>
+<div class="tl-card">
+<div class="tl-head">
+<div class="tl-role">SDET II — Consultant</div>
+<div class="tl-badge live-badge">● Live · Current</div>
+</div>
+<div class="tl-co">Deloitte</div>
+<div class="tl-meta"><span>📅 Sep 2025 – Present</span><span>📍 Hyderabad · On-site</span><span>⚡ Utility / Energy (Exelon ADMS)</span></div>
+<div class="tl-body">
+<p>Automating 200+ confidence test cases across OMS, SOM, DMS, and SCADA workflows using Eggplant Functional and SenseTalk — on a platform where reliability is non-negotiable.</p>
+<p>Serving as primary QA contact for the Exelon client team: aligning daily on testing progress, delivery priorities, and issue resolution across all ADMS tracks.</p>
+</div>
+<div class="highlights">
+<div class="hl">70% ↓ Manual QA Effort</div>
+<div class="hl">35% ↓ Env Failures</div>
+<div class="hl">200+ Cases Automated</div>
+<div class="hl">Eggplant · SenseTalk</div>
+</div>
+</div>
+</div>
+
+<div class="tl-item fade-up">
+<div class="tl-dot"></div>
+<div class="tl-card">
+<div class="tl-head">
+<div class="tl-role">Test Automation Engineer</div>
+<div class="tl-badge past-badge">Oct 2023 – Aug 2025 · 1yr 11mos</div>
+</div>
+<div class="tl-co">Cognizant · PetSmart US & Canada</div>
+<div class="tl-meta"><span>📅 Oct 2023 – Aug 2025</span><span>📍 Pune · Hybrid</span><span>🛒 E-Commerce</span></div>
+<div class="tl-body">
+<p>Led QA in Agile scrum teams across 3-week sprints. Designed and executed 300+ manual and automated test cases, reducing defect leakage by 45% with zero critical production escapes across 6 consecutive releases.</p>
+<p>Built Selenium + Java + TestNG + Cucumber BDD framework with POM, XPath, dynamic waits, and OOP. Integrated CI/CD via Jenkins & GitLab — cutting regression time 50%, enabling 60% faster test cycles.</p>
+<p>Automated REST API testing with Rest Assured, validated Salesforce CRM via Workbench (80% drop in recurring bugs), and implemented TOSCA for 60% increased coverage. Led BrowserStack cross-browser and WCAG accessibility audits.</p>
+</div>
+<div class="highlights">
+<div class="hl">45% ↓ Defect Leakage</div>
+<div class="hl">80% ↓ API Bugs</div>
+<div class="hl">60% Faster Cycles</div>
+<div class="hl">0 Prod Escapes</div>
+</div>
+</div>
+</div>
+
+<div class="tl-item fade-up">
+<div class="tl-dot"></div>
+<div class="tl-card">
+<div class="tl-head">
+<div class="tl-role">Software QA Engineer</div>
+<div class="tl-badge past-badge">Aug 2022 – Oct 2023 · 1yr 3mos</div>
+</div>
+<div class="tl-co">Cognizant</div>
+<div class="tl-meta"><span>📅 Aug 2022 – Oct 2023</span><span>📍 Pune, India</span><span>🛒 E-Commerce</span></div>
+<div class="tl-body">
+<p>Built robust automation with Selenium, Java, TestNG, and Cucumber. Automated 300+ test cases for US/CA e-commerce, cutting defect leakage 45%. Implemented REST API testing with Rest Assured + Salesforce Workbench. Enabled CI via Jenkins + GitLab; led BrowserStack cross-browser and VoiceOver/TalkBack accessibility testing.</p>
+</div>
+<div class="highlights">
+<div class="hl">300+ Cases</div>
+<div class="hl">CI/CD Integration</div>
+<div class="hl">WCAG A11y</div>
+</div>
+</div>
+</div>
+
+<div class="tl-item fade-up">
+<div class="tl-dot"></div>
+<div class="tl-card">
+<div class="tl-head">
+<div class="tl-role">Programmer Analyst Trainee</div>
+<div class="tl-badge past-badge">Aug 2021 – Aug 2022 · 1yr 1mo</div>
+</div>
+<div class="tl-co">Cognizant</div>
+<div class="tl-meta"><span>📅 Aug 2021 – Aug 2022</span><span>📍 India · On-site</span></div>
+<div class="tl-body">
+<p>Executed functional, integration, smoke, sanity, and regression testing. Validated E2E flows on PRISM (Salesforce) — orders, appointments, loyalty programs — improving release quality 35%. Maintained Selenium/Java/TestNG scripts cutting manual regression 75%. Authored test plans; tracked defects in qTest and JIRA.</p>
+</div>
+<div class="highlights">
+<div class="hl">75% ↓ Manual Regression</div>
+<div class="hl">35% ↑ Release Quality</div>
+<div class="hl">Salesforce PRISM</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+<div class="section-inner">
+<div class="section-header fade-up">
+<div class="eyebrow">Technical Arsenal</div>
+<h2>The stack behind every<br/><span class="accent">zero-defect release.</span></h2>
+</div>
+<div class="skills-grid">
+<div class="sk-card fade-up">
+<div class="sk-head"><div class="sk-icon">⚙️</div><div class="sk-name">Automation Frameworks</div></div>
+<div class="sk-chips">
+<span class="sk-chip">Selenium WebDriver</span><span class="sk-chip">Java</span><span class="sk-chip">TestNG</span><span class="sk-chip">JUnit</span><span class="sk-chip">Cucumber BDD</span><span class="sk-chip">Page Object Model</span><span class="sk-chip">TOSCA</span><span class="sk-chip">Eggplant</span><span class="sk-chip">SenseTalk</span>
+</div>
+</div>
+<div class="sk-card fade-up" style="transition-delay:0.08s">
+<div class="sk-head"><div class="sk-icon">🌐</div><div class="sk-name">API & Integration Testing</div></div>
+<div class="sk-chips">
+<span class="sk-chip">Rest Assured</span><span class="sk-chip">Postman</span><span class="sk-chip">SQL</span><span class="sk-chip">Salesforce Workbench</span><span class="sk-chip">Salesforce CRM</span><span class="sk-chip">Salesforce Admin</span><span class="sk-chip">Salesforce Sandbox</span>
+</div>
+</div>
+<div class="sk-card fade-up" style="transition-delay:0.16s">
+<div class="sk-head"><div class="sk-icon">📱</div><div class="sk-name">Mobile & Cross-Browser</div></div>
+<div class="sk-chips">
+<span class="sk-chip">Appium</span><span class="sk-chip">BrowserStack</span><span class="sk-chip">ContentSquare</span><span class="sk-chip">VoiceOver</span><span class="sk-chip">TalkBack</span><span class="sk-chip">WCAG Compliance</span><span class="sk-chip">Accessibility Testing</span>
+</div>
+</div>
+<div class="sk-card fade-up">
+<div class="sk-head"><div class="sk-icon">🔁</div><div class="sk-name">CI/CD & DevOps</div></div>
+<div class="sk-chips">
+<span class="sk-chip">Jenkins</span><span class="sk-chip">GitLab CI</span><span class="sk-chip">Azure DevOps</span><span class="sk-chip">GitHub</span>
+</div>
+</div>
+<div class="sk-card fade-up" style="transition-delay:0.08s">
+<div class="sk-head"><div class="sk-icon">📊</div><div class="sk-name">Test Management & Reporting</div></div>
+<div class="sk-chips">
+<span class="sk-chip">JIRA</span><span class="sk-chip">qTest</span><span class="sk-chip">Azure DevOps</span><span class="sk-chip">WSR / MSR Reports</span><span class="sk-chip">QA Dashboards</span><span class="sk-chip">Defect Triage</span>
+</div>
+</div>
+<div class="sk-card fade-up" style="transition-delay:0.16s">
+<div class="sk-head"><div class="sk-icon">🤖</div><div class="sk-name">AI-Augmented QA</div></div>
+<div class="sk-chips">
+<span class="sk-chip">GitHub Copilot</span><span class="sk-chip">Microsoft Copilot</span><span class="sk-chip">Claude AI</span><span class="sk-chip">Shift-Left Testing</span><span class="sk-chip">Agile / Scrum</span><span class="sk-chip">BDD</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- IMPACT -->
+<section id="impact">
+<div class="section-inner">
+<div class="section-header fade-up">
+<div class="eyebrow">Measurable Results</div>
+<h2>Numbers that tell<br/><span class="accent">the real story.</span></h2>
+</div>
+<div class="impact-grid">
+<div class="impact-card fade-up">
+<span class="impact-icon">🐛</span>
+<div class="impact-num">45%</div>
+<div class="impact-desc"><strong>Defect Leakage Reduced</strong>300+ automated cases across US & Canada e-commerce platforms.</div>
+</div>
+<div class="impact-card fade-up" style="transition-delay:0.08s">
+<span class="impact-icon">⚡</span>
+<div class="impact-num">60%</div>
+<div class="impact-desc"><strong>Faster Regression Cycles</strong>Jenkins + GitLab CI/CD across 10+ sprint releases.</div>
+</div>
+<div class="impact-card fade-up" style="transition-delay:0.16s">
+<span class="impact-icon">🔌</span>
+<div class="impact-num">80%</div>
+<div class="impact-desc"><strong>Drop in Recurring API Bugs</strong>Rest Assured automation + Salesforce CRM validation.</div>
+</div>
+<div class="impact-card fade-up" style="transition-delay:0.08s">
+<span class="impact-icon">🏭</span>
+<div class="impact-num">70%</div>
+<div class="impact-desc"><strong>Less Manual QA Effort</strong>Eggplant automation on Exelon ADMS / SCADA workflows.</div>
+</div>
+<div class="impact-card fade-up" style="transition-delay:0.16s">
+<span class="impact-icon">🚀</span>
+<div class="impact-num">75%</div>
+<div class="impact-desc"><strong>Cut Manual Regression</strong>Selenium/Java/TestNG scripts at Cognizant, from day one.</div>
+</div>
+<div class="impact-card fade-up" style="transition-delay:0.24s">
+<span class="impact-icon">🏆</span>
+<div class="impact-num zero">Zero</div>
+<div class="impact-desc"><strong>Critical Production Escapes</strong>6 consecutive releases. The ultimate QA benchmark.</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+<div class="section-inner">
+<div class="contact-wrap">
+<div class="contact-card fade-up">
+<div class="eyebrow" style="justify-content:center;margin-bottom:28px">Let's Connect</div>
+<h2>Building something that<br/>needs to <span class="accent">work every time?</span></h2>
+<p>I'm open to SDET, QA Automation Engineer, and Test Engineer roles. If you're building high-reliability software with a shift-left mindset and Agile delivery — let's talk.</p>
+<div class="contact-links">
+<a href="https://www.linkedin.com/in/rahul-gupta-295323175" target="_blank" class="clink primary">🔗 LinkedIn Profile</a>
+<a href="mailto:rahulgupta.12328@gmail.com" class="clink">✉️ Email Me</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+<div><span class="fc">Rahul Gupta</span> · SDET II · QA Automation Engineer</div>
+<div>Engineered with precision · <span class="fc">Zero bugs</span> in production 🐛</div>
+</footer>
+
+<script>
+const io = new IntersectionObserver(entries=>{
+entries.forEach(e=>{
+if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}
+})
+},{threshold:0.1});
+document.querySelectorAll('.fade-up').forEach(el=>io.observe(el));
+setTimeout(()=>{
+document.querySelectorAll('#hero .fade-up, #stats .fade-up').forEach(el=>el.classList.add('visible'));
+},80);
+</script>
+</body>
+</html>
