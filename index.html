@@ -119,6 +119,39 @@ h1{font-size:clamp(2.8rem,5.5vw,4.2rem);font-weight:700;line-height:1.04;margin-
 
 /* CERTS */
 #certs{background:var(--bg2)}
+
+/* PROJECTS & CASE STUDY */
+#projects{background:var(--bg2)}
+.case-study{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:36px;margin-bottom:24px;position:relative;overflow:hidden;transition:all .3s}
+.case-study:hover{border-color:rgba(124,58,237,.4)}
+.case-study::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:linear-gradient(180deg,var(--violet),var(--pink))}
+.cs-tag{font-family:var(--mono);font-size:10px;color:var(--violet);letter-spacing:.15em;text-transform:uppercase;margin-bottom:12px;display:inline-block;background:var(--violet4);padding:5px 12px;border-radius:4px;border:1px solid var(--border)}
+.cs-title{font-size:1.4rem;font-weight:600;color:var(--white);margin-bottom:8px;line-height:1.3}
+.cs-client{font-family:var(--mono);font-size:.82rem;color:var(--amber);margin-bottom:24px}
+.cs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px}
+.cs-block{padding:18px;background:var(--bg3);border-radius:8px;border:1px solid var(--border)}
+.cs-block-label{font-family:var(--mono);font-size:10px;color:var(--violet);letter-spacing:.18em;text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.cs-block-label::before{content:'';width:6px;height:6px;background:var(--violet);border-radius:50%}
+.cs-block.outcome .cs-block-label{color:var(--green)}
+.cs-block.outcome .cs-block-label::before{background:var(--green)}
+.cs-block-text{font-size:.86rem;color:var(--muted);line-height:1.65}
+.cs-block-text strong{color:var(--white)}
+.cs-metrics{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.cs-metric{font-family:var(--mono);font-size:11px;background:rgba(34,197,94,.08);color:var(--green);border:1px solid rgba(34,197,94,.2);padding:6px 12px;border-radius:4px}
+
+.projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:32px}
+.proj-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:24px;text-decoration:none;color:inherit;transition:all .3s;display:flex;flex-direction:column;gap:10px;position:relative;overflow:hidden}
+.proj-card::after{content:'↗';position:absolute;top:18px;right:18px;font-size:1.2rem;color:var(--violet);opacity:0;transition:all .3s}
+.proj-card:hover{border-color:rgba(124,58,237,.4);transform:translateY(-3px)}
+.proj-card:hover::after{opacity:1;transform:translate(3px,-3px)}
+.proj-head{display:flex;align-items:center;gap:10px}
+.proj-icon{font-size:1.3rem}
+.proj-name{font-size:1rem;font-weight:600;color:var(--white)}
+.proj-desc{font-size:.85rem;color:var(--muted);line-height:1.6}
+.proj-stack{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.proj-stack span{font-family:var(--mono);font-size:10px;background:var(--bg3);color:rgba(240,238,255,.6);padding:3px 8px;border-radius:3px;border:1px solid var(--border)}
+.proj-meta{display:flex;gap:14px;font-family:var(--mono);font-size:10px;color:var(--muted);margin-top:6px;padding-top:10px;border-top:1px solid var(--border)}
+.proj-meta span{display:flex;align-items:center;gap:4px}
 .certs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .cert-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:22px;display:flex;align-items:flex-start;gap:14px;transition:all .3s;text-decoration:none;color:inherit;position:relative;overflow:hidden}
 .cert-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--violet),var(--pink));transform:scaleX(0);transition:transform .3s;transform-origin:left}
@@ -246,6 +279,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:26px 60px
   .stat-item:nth-child(2n){border-right:none!important}
   .stat-item:nth-child(n+3){border-top:1px solid var(--border)}
   .sk-grid,.imp-grid,.certs-grid{grid-template-columns:1fr}
+  .cs-grid,.projects-grid{grid-template-columns:1fr}
+  .case-study{padding:24px}
   .contact-card{padding:40px 24px}
   .edu-card{flex-direction:column;text-align:center;padding:32px 24px}
   footer{padding:24px;justify-content:center;text-align:center}
@@ -266,6 +301,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:26px 60px
     <li><a href="#about">About</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
     <li><a href="#certs">Certs</a></li>
     <li><a href="#impact">Impact</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -279,6 +315,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:26px 60px
   <a href="#about" onclick="cm()">About</a>
   <a href="#experience" onclick="cm()">Experience</a>
   <a href="#skills" onclick="cm()">Skills</a>
+  <a href="#projects" onclick="cm()">Projects</a>
   <a href="#certs" onclick="cm()">Certs</a>
   <a href="#impact" onclick="cm()">Impact</a>
   <a href="#contact" onclick="cm()">Contact</a>
@@ -296,6 +333,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:26px 60px
         <p class="hero-desc">I don't just find bugs — I build systems that prevent them. <strong style="color:var(--white)">4+ years</strong> engineering scalable test automation, API validation, and CI/CD-integrated quality engineering for large-scale consumer and enterprise platforms.</p>
         <div class="hero-btns">
           <a href="#experience" class="btn-v">View My Work ↓</a>
+          <a href="Rahul_Gupta_SDET_II.pdf" download class="btn-g">📄 Download Resume</a>
           <a href="https://www.linkedin.com/in/rahul-gupta-295323175" target="_blank" class="btn-g">🔗 LinkedIn</a>
           <a href="tel:+919131042507" class="btn-call">📞 Call Now</a>
         </div>
@@ -361,6 +399,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:26px 60px
           <p>I'm <strong>Rahul Gupta</strong>, a results-driven SDET-II / QA Automation Engineer with <strong>4+ years</strong> turning manual, error-prone testing into fast, scalable, and intelligent automation.</p>
           <p>I've engineered <strong>750+ test cases</strong> across web, mobile, API, and accessibility layers — cutting manual effort by <strong>50%</strong>, shrinking defect leakage by <strong>45%</strong>, eliminating <strong>80% of recurring bugs</strong>, and accelerating regression cycles by <strong>60%</strong>.</p>
           <p>My approach goes beyond writing test scripts. I think like a product engineer — understanding business impact, anticipating failure points, and designing automation that actually scales. I leverage <strong>GitHub Copilot, Microsoft Copilot, and Claude AI</strong> to accelerate test design, defect analysis, and QA documentation.</p>
+          <p><strong>Regulated-domain mindset:</strong> My Exelon ADMS work demands the same rigor as financial services and healthcare — strict change management, audit-ready traceability, role-based permissions, and zero-tolerance for production failures. The discipline transfers directly to <strong>banking, payments, fintech, and risk platforms</strong>.</p>
           <p>📍 <strong>Hyderabad, Telangana, India</strong></p>
         </div>
         <div class="about-tags fade-up">
@@ -580,6 +619,14 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:26px 60px
         <div class="sk-head"><div class="sk-icon">🧪</div><div class="sk-name">Methodologies</div></div>
         <div class="sk-chips"><span class="sk-chip">Agile/Scrum</span><span class="sk-chip">SDLC · STLC</span><span class="sk-chip">TDD · BDD</span><span class="sk-chip">Shift-Left Testing</span><span class="sk-chip">Defect Lifecycle</span><span class="sk-chip">Risk-Based Testing</span></div>
       </div>
+      <div class="sk-card fade-up">
+        <div class="sk-head"><div class="sk-icon">⚡</div><div class="sk-name">Performance & Load Testing</div></div>
+        <div class="sk-chips"><span class="sk-chip">JMeter</span><span class="sk-chip">Postman Runner</span><span class="sk-chip">Load Profiling</span><span class="sk-chip">Response Time Analysis</span><span class="sk-chip">Concurrent User Testing</span></div>
+      </div>
+      <div class="sk-card fade-up" style="transition-delay:.06s">
+        <div class="sk-head"><div class="sk-icon">🔐</div><div class="sk-name">Security & Compliance</div></div>
+        <div class="sk-chips"><span class="sk-chip">OWASP Top 10</span><span class="sk-chip">Role-Based Access Testing</span><span class="sk-chip">WCAG 2.1</span><span class="sk-chip">Audit Traceability</span><span class="sk-chip">Change Management</span></div>
+      </div>
     </div>
 
     <!-- TEST RUNNER -->
@@ -618,6 +665,111 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:26px 60px
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- FEATURED PROJECTS & CASE STUDY -->
+<section id="projects">
+  <div class="wrap">
+    <div class="s-header fade-up">
+      <div class="eyebrow">Featured Work</div>
+      <h2>Real projects.<br/><span class="grad">Real outcomes.</span></h2>
+    </div>
+
+    <!-- CASE STUDY -->
+    <div class="case-study fade-up">
+      <div class="cs-tag">⚡ Live Case Study · Deloitte</div>
+      <div class="cs-title">Exelon ADMS — Mission-Critical Utility Automation</div>
+      <div class="cs-client">📡 Advanced Distribution Management System · OMS · SOM · DMS · SCADA</div>
+      <div class="cs-grid">
+        <div class="cs-block">
+          <div class="cs-block-label">Problem</div>
+          <div class="cs-block-text">Manual QA dominated the Exelon ADMS testing tracks — slow execution cycles, high environment-related failures, and inconsistent regression coverage across <strong>4 integrated modules</strong> on a platform where downtime affects millions of energy customers.</div>
+        </div>
+        <div class="cs-block">
+          <div class="cs-block-label">Approach</div>
+          <div class="cs-block-text">Architected an <strong>Eggplant Functional + SenseTalk</strong> automation framework covering 200+ confidence cases. Built 220+ regression tests and 120+ role-based permission tests per cycle. Leveraged <strong>GitHub Copilot + Claude AI</strong> to cut script authoring time by ~40%.</div>
+        </div>
+        <div class="cs-block outcome">
+          <div class="cs-block-label">Outcome</div>
+          <div class="cs-block-text"><strong>70% manual QA effort eliminated</strong>, regression accelerated by <strong>60%</strong>, and environment-related failures reduced by <strong>35%</strong>. Became primary QA contact for Exelon client — aligning daily on delivery priorities across all ADMS tracks.</div>
+        </div>
+      </div>
+      <div class="cs-metrics">
+        <div class="cs-metric">70% ↓ Manual QA</div>
+        <div class="cs-metric">60% ↑ Regression Speed</div>
+        <div class="cs-metric">35% ↓ Env Failures</div>
+        <div class="cs-metric">~40% Script Time Saved</div>
+        <div class="cs-metric">4 ADMS Modules Covered</div>
+      </div>
+    </div>
+
+    <!-- CASE STUDY 2 -->
+    <div class="case-study fade-up">
+      <div class="cs-tag">🛒 Case Study · Cognizant / PetSmart</div>
+      <div class="cs-title">PetSmart US + Canada — Dual E-Commerce QA at Scale</div>
+      <div class="cs-client">🌐 High-Traffic Retail Platforms · 100+ Salesforce CRM Endpoints</div>
+      <div class="cs-grid">
+        <div class="cs-block">
+          <div class="cs-block-label">Problem</div>
+          <div class="cs-block-text">Two high-traffic e-commerce platforms (US + CA) with <strong>48-hour feedback loops</strong>, high defect leakage, and recurring API failures from Salesforce CRM integrations. Manual regression took <strong>6+ hours per release</strong>.</div>
+        </div>
+        <div class="cs-block">
+          <div class="cs-block-label">Approach</div>
+          <div class="cs-block-text">Designed a <strong>Selenium + Java + POM + TestNG + Cucumber BDD</strong> framework. Integrated Jenkins + GitLab CI/CD. Built Rest Assured + Postman validation across 100+ Salesforce endpoints. Added BrowserStack + WCAG 2.1 accessibility coverage.</div>
+        </div>
+        <div class="cs-block outcome">
+          <div class="cs-block-label">Outcome</div>
+          <div class="cs-block-text"><strong>550+ test cases authored & executed</strong>, defect leakage cut by <strong>45%</strong>, recurring API bugs eliminated by <strong>80%</strong>, feedback loop compressed from <strong>48 hours to under 4 hours</strong> across 6 consecutive releases.</div>
+        </div>
+      </div>
+      <div class="cs-metrics">
+        <div class="cs-metric">550+ Test Cases</div>
+        <div class="cs-metric">45% ↓ Defect Leakage</div>
+        <div class="cs-metric">80% ↓ Recurring Bugs</div>
+        <div class="cs-metric">60% ↑ Regression Speed</div>
+        <div class="cs-metric">48hr → 4hr Feedback</div>
+        <div class="cs-metric">WCAG 2.1 Compliant</div>
+      </div>
+    </div>
+
+    <!-- GITHUB REPOS -->
+    <div class="s-header fade-up" style="margin-top:60px;margin-bottom:24px">
+      <div class="eyebrow">Open Source · GitHub</div>
+      <h2 style="font-size:1.8rem">Frameworks I've <span class="grad">built & shared.</span></h2>
+    </div>
+
+    <div class="projects-grid">
+      <a href="https://github.com/riccky56/cucumberprj" target="_blank" class="proj-card fade-up">
+        <div class="proj-head">
+          <div class="proj-icon">🥒</div>
+          <div class="proj-name">cucumberprj</div>
+        </div>
+        <div class="proj-desc">Cucumber BDD test automation framework — feature files, step definitions, Maven build, and integrated reporting. A working template for BDD-driven Selenium projects.</div>
+        <div class="proj-stack">
+          <span>Java</span><span>Cucumber</span><span>Selenium</span><span>Maven</span><span>BDD</span><span>POM</span>
+        </div>
+        <div class="proj-meta">
+          <span>📦 Maven Project</span>
+          <span>📂 features · src · reports</span>
+        </div>
+      </a>
+
+      <a href="https://github.com/riccky56/Entrata/tree/master" target="_blank" class="proj-card fade-up" style="transition-delay:.08s">
+        <div class="proj-head">
+          <div class="proj-icon">🏢</div>
+          <div class="proj-name">Entrata</div>
+        </div>
+        <div class="proj-desc">Property management workflow automation testing — exploratory test scripts and validation flows for a multi-family residential platform.</div>
+        <div class="proj-stack">
+          <span>Selenium</span><span>Java</span><span>TestNG</span><span>E2E Testing</span>
+        </div>
+        <div class="proj-meta">
+          <span>🔗 github.com/riccky56/Entrata</span>
+        </div>
+      </a>
+    </div>
+
   </div>
 </section>
 
