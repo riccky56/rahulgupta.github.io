@@ -88,15 +88,15 @@ h1{font-size:clamp(2.8rem,5.5vw,4.2rem);font-weight:700;line-height:1.04;margin-
 
 /* STATS */
 #stats{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-.stats-row{max-width:1140px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:repeat(6,1fr)}
-.stat-item{padding:30px 14px;text-align:center;border-right:1px solid var(--border);position:relative;overflow:hidden;transition:background .3s}
+.stats-row{max-width:1140px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:repeat(8,1fr)}
+.stat-item{padding:28px 10px;text-align:center;border-right:1px solid var(--border);position:relative;overflow:hidden;transition:background .3s}
 .stat-item:last-child{border-right:none}
 .stat-item:hover{background:var(--violet4)}
 .stat-item::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--violet),var(--pink));transform:scaleX(0);transition:transform .4s;transform-origin:left}
 .stat-item:hover::after{transform:scaleX(1)}
-.sn{font-family:var(--mono);font-size:1.9rem;font-weight:600;color:var(--violet);line-height:1;display:block}
-.sn.g{color:var(--green)}.sn.a{color:var(--amber)}.sn.p{color:var(--pink)}
-.sl{font-size:10px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-top:6px;display:block}
+.sn{font-family:var(--mono);font-size:1.7rem;font-weight:600;color:var(--violet);line-height:1;display:block}
+.sn.g{color:var(--green)}.sn.a{color:var(--amber)}.sn.p{color:var(--pink)}.sn.b{color:var(--blue)}
+.sl{font-size:9.5px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-top:6px;display:block;line-height:1.35}
 
 /* ABOUT */
 #about{background:var(--bg)}
@@ -241,8 +241,10 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:26px 60px
   .hero-grid,.about-grid{grid-template-columns:1fr;gap:40px}
   .hero-grid .terminal{display:none}
   .wrap{padding:70px 24px}
-  .stats-row{grid-template-columns:repeat(3,1fr)}
-  .stat-item:nth-child(n+4){border-top:1px solid var(--border)}
+  .stats-row{grid-template-columns:repeat(2,1fr)}
+  .stat-item{border-right:1px solid var(--border)!important}
+  .stat-item:nth-child(2n){border-right:none!important}
+  .stat-item:nth-child(n+3){border-top:1px solid var(--border)}
   .sk-grid,.imp-grid,.certs-grid{grid-template-columns:1fr}
   .contact-card{padding:40px 24px}
   .edu-card{flex-direction:column;text-align:center;padding:32px 24px}
@@ -334,11 +336,13 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:26px 60px
 <!-- STATS -->
 <section id="stats">
   <div class="stats-row">
-    <div class="stat-item fade-up"><span class="sn" data-target="750" data-suffix="+">0</span><span class="sl">Test Cases</span></div>
+    <div class="stat-item fade-up"><span class="sn" data-target="750" data-suffix="+">0</span><span class="sl">Testcases Created<br/>& Executed</span></div>
     <div class="stat-item fade-up"><span class="sn g" data-target="0">0</span><span class="sl">Prod Escapes</span></div>
     <div class="stat-item fade-up"><span class="sn" data-target="45" data-suffix="%">0</span><span class="sl">Defect Cut</span></div>
     <div class="stat-item fade-up"><span class="sn a" data-target="60" data-suffix="%">0</span><span class="sl">Faster Regression</span></div>
     <div class="stat-item fade-up"><span class="sn p" data-target="80" data-suffix="%">0</span><span class="sl">Bugs Eliminated</span></div>
+    <div class="stat-item fade-up"><span class="sn b" data-target="220" data-suffix="+">0</span><span class="sl">Regression Tests</span></div>
+    <div class="stat-item fade-up"><span class="sn a" data-target="120" data-suffix="+">0</span><span class="sl">Permission Tests<br/>Per Cycle</span></div>
     <div class="stat-item fade-up"><span class="sn" data-target="4" data-suffix="+">0</span><span class="sl">Years Experience</span></div>
   </div>
 </section>
