@@ -88,15 +88,15 @@ h1{font-size:clamp(2.8rem,5.5vw,4.2rem);font-weight:700;line-height:1.04;margin-
 
 /* STATS */
 #stats{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-.stats-row{max-width:1140px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:repeat(8,1fr)}
-.stat-item{padding:28px 10px;text-align:center;border-right:1px solid var(--border);position:relative;overflow:hidden;transition:background .3s}
+.stats-row{max-width:1140px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:repeat(9,1fr)}
+.stat-item{padding:26px 8px;text-align:center;border-right:1px solid var(--border);position:relative;overflow:hidden;transition:background .3s}
 .stat-item:last-child{border-right:none}
 .stat-item:hover{background:var(--violet4)}
 .stat-item::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--violet),var(--pink));transform:scaleX(0);transition:transform .4s;transform-origin:left}
 .stat-item:hover::after{transform:scaleX(1)}
-.sn{font-family:var(--mono);font-size:1.7rem;font-weight:600;color:var(--violet);line-height:1;display:block}
+.sn{font-family:var(--mono);font-size:1.55rem;font-weight:600;color:var(--violet);line-height:1;display:block}
 .sn.g{color:var(--green)}.sn.a{color:var(--amber)}.sn.p{color:var(--pink)}.sn.b{color:var(--blue)}
-.sl{font-size:9.5px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-top:6px;display:block;line-height:1.35}
+.sl{font-size:9px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;margin-top:6px;display:block;line-height:1.35}
 
 /* ABOUT */
 #about{background:var(--bg)}
@@ -325,7 +325,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:26px 60px
           <div class="t-line" id="tl5"><span class="to">📦 Executing 750+ test cases...</span></div>
           <div class="t-line" id="tl6"><span class="to tk">⚙️ CI/CD: Jenkins · GitLab triggered</span></div>
           <div class="t-line" id="tl7"><span class="to ts">✅ ALL TESTS PASSED — 0 failures</span></div>
-          <div class="t-line" id="tl8"><span class="to tv">🏆 Prod escapes: Zero · 6 releases</span></div>
+          <div class="t-line" id="tl8"><span class="to tv">🚀 200+ automation tests per cycle</span></div>
           <div class="t-line" id="tl9"><span class="tp">❯</span><span class="tc"><span id="tCmd"></span><span class="cursor"></span></span></div>
         </div>
       </div>
@@ -342,6 +342,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:26px 60px
     <div class="stat-item fade-up"><span class="sn a" data-target="60" data-suffix="%">0</span><span class="sl">Faster Regression</span></div>
     <div class="stat-item fade-up"><span class="sn p" data-target="80" data-suffix="%">0</span><span class="sl">Recurring Bugs<br/>Eliminated</span></div>
     <div class="stat-item fade-up"><span class="sn b" data-target="220" data-suffix="+">0</span><span class="sl">Regression Tests</span></div>
+    <div class="stat-item fade-up"><span class="sn g" data-target="200" data-suffix="+">0</span><span class="sl">Automation Tests<br/>Per Cycle</span></div>
     <div class="stat-item fade-up"><span class="sn a" data-target="120" data-suffix="+">0</span><span class="sl">Permission Tests<br/>Per Cycle</span></div>
     <div class="stat-item fade-up"><span class="sn" data-target="4" data-suffix="+">0</span><span class="sl">Years Experience</span></div>
   </div>
@@ -472,11 +473,10 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:26px 60px
             <div class="tl-metric"><span class="tl-metric-num">45%</span><span class="tl-metric-lbl">Defect Leakage ↓</span></div>
             <div class="tl-metric"><span class="tl-metric-num">80%</span><span class="tl-metric-lbl">Recurring Bugs ↓</span></div>
             <div class="tl-metric"><span class="tl-metric-num">60%</span><span class="tl-metric-lbl">Regression Speed ↑</span></div>
-            <div class="tl-metric"><span class="tl-metric-num">0</span><span class="tl-metric-lbl">Prod Escapes</span></div>
           </div>
           <div class="tl-body">
             <p>Owned end-to-end QA delivery across 3-week Agile sprint cycles for <strong>2 high-traffic e-commerce platforms (US + CA)</strong>, executing functional, web, API, cross-browser, mobile, UI, and accessibility testing.</p>
-            <p>Authored and executed <strong>550+ manual and automation test cases</strong>; reduced defect leakage by 45%, improved application stability by 30%, and achieved zero critical production escapes over <strong>6 consecutive releases</strong>.</p>
+            <p>Authored and executed <strong>550+ manual and automation test cases</strong>; reduced defect leakage by 45% and improved application stability by 30% across 6 consecutive releases.</p>
             <p>Designed and maintained a <strong>Selenium WebDriver + Java + POM + TestNG</strong> automation framework that cut manual testing effort by 50%, accelerated regression cycles by 60%, and supported 2 concurrent e-commerce sites.</p>
             <p>Integrated CI/CD pipelines via Jenkins and GitLab, reducing test feedback loop from <strong>48 hours to under 4 hours</strong> and enabling same-day defect visibility.</p>
             <p>Performed end-to-end REST API testing with Rest Assured and Postman across <strong>100+ Salesforce CRM integration endpoints</strong>, driving an 80% reduction in recurring API defects across 12+ releases.</p>
@@ -487,7 +487,6 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:26px 60px
             <div class="hl g">550+ Test Cases</div>
             <div class="hl g">45% ↓ Defect Leakage</div>
             <div class="hl g">80% ↓ API Bugs</div>
-            <div class="hl g">0 Prod Escapes · 6 Releases</div>
             <div class="hl">Selenium · POM · BDD</div>
             <div class="hl">TOSCA · Rest Assured</div>
             <div class="hl">Jenkins · GitLab</div>
@@ -721,7 +720,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:26px 60px
       <div class="imp-card fade-up" style="transition-delay:.12s"><span class="imp-icon">🚀</span><div class="imp-num">50%</div><div class="imp-desc"><strong>Manual Effort Cut</strong>Selenium + Java + POM + TestNG framework at Cognizant.</div></div>
       <div class="imp-card fade-up"><span class="imp-icon">⏱️</span><div class="imp-num">48→4hr</div><div class="imp-desc"><strong>Feedback Loop Compressed</strong>CI/CD turning 48-hour cycles into under 4 hours.</div></div>
       <div class="imp-card fade-up" style="transition-delay:.06s"><span class="imp-icon">📋</span><div class="imp-num">220+</div><div class="imp-desc"><strong>Regression Tests at Deloitte</strong>End-to-end stability across all Exelon ADMS tracks.</div></div>
-      <div class="imp-card fade-up" style="transition-delay:.12s"><span class="imp-icon">✍️</span><div class="imp-num">750+</div><div class="imp-desc"><strong>Test Case Scripting, Authorship & Execution</strong>Designed, authored, and executed across web, API, mobile & accessibility layers.</div></div>
+      <div class="imp-card fade-up" style="transition-delay:.12s"><span class="imp-icon">🤖</span><div class="imp-num">200+</div><div class="imp-desc"><strong>Automation Tests Per Cycle</strong>Confidence test cases automated across OMS, SOM, DMS, and SCADA workflows.</div></div>
+      <div class="imp-card fade-up" style="transition-delay:.18s"><span class="imp-icon">✍️</span><div class="imp-num">750+</div><div class="imp-desc"><strong>Test Case Scripting, Authorship & Execution</strong>Designed, authored, and executed across web, API, mobile & accessibility layers.</div></div>
     </div>
   </div>
 </section>
