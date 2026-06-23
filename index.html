@@ -652,41 +652,6 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:26px 60px
     </div>
 
     <!-- TEST RUNNER -->
-    <div class="test-runner fade-up">
-      <div class="tr-bar">
-        <div class="td td-g"></div>
-        <div class="tr-title">RegressionSuite.xml — TestNG Parallel Runner</div>
-        <div class="tr-status" id="trStatus">● Initializing…</div>
-      </div>
-      <div class="tr-body">
-        <div class="tr-suite">
-          <div class="tr-suite-name">LoginTests.class</div>
-          <div class="tr-test"><span class="tr-ico" id="t1i">⏳</span><span class="tr-nm">testValidLoginFlow_Chrome()</span><span class="tr-ms" id="t1m">—</span></div>
-          <div class="tr-test"><span class="tr-ico" id="t2i">⏳</span><span class="tr-nm">testInvalidCredentials_ShouldShowError()</span><span class="tr-ms" id="t2m">—</span></div>
-        </div>
-        <div class="tr-suite">
-          <div class="tr-suite-name">CheckoutTests.class — PetSmart US/CA</div>
-          <div class="tr-test"><span class="tr-ico" id="t3i">⏳</span><span class="tr-nm">testAddToCart_US_Platform()</span><span class="tr-ms" id="t3m">—</span></div>
-          <div class="tr-test"><span class="tr-ico" id="t4i">⏳</span><span class="tr-nm">testPaymentGateway_Visa_MasterCard()</span><span class="tr-ms" id="t4m">—</span></div>
-        </div>
-        <div class="tr-suite">
-          <div class="tr-suite-name">APITests.class — Rest Assured</div>
-          <div class="tr-test"><span class="tr-ico" id="t5i">⏳</span><span class="tr-nm">testGetProduct_Returns200_WithSchema()</span><span class="tr-ms" id="t5m">—</span></div>
-          <div class="tr-test"><span class="tr-ico" id="t6i">⏳</span><span class="tr-nm">testSalesforceOrderValidation_CRM()</span><span class="tr-ms" id="t6m">—</span></div>
-        </div>
-        <div class="tr-suite">
-          <div class="tr-suite-name">EggplantTests — Exelon SCADA / ADMS</div>
-          <div class="tr-test"><span class="tr-ico" id="t7i">⏳</span><span class="tr-nm">testOMS_SwitchOperation_SenseTalk()</span><span class="tr-ms" id="t7m">—</span></div>
-          <div class="tr-test"><span class="tr-ico" id="t8i">⏳</span><span class="tr-nm">testSCADA_DataIntegrity_DMS()</span><span class="tr-ms" id="t8m">—</span></div>
-        </div>
-        <div class="tr-prog"><div class="tr-fill" id="trFill"></div></div>
-        <div class="tr-sum">
-          <span class="tr-p" id="trPassed">Passed: 0</span>
-          <span class="tr-f">Failed: 0</span>
-          <span class="tr-t">Total: 8 (Suite: 750+) · Parallel: 4 threads</span>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -1003,40 +968,6 @@ const cObs=new IntersectionObserver(entries=>{
 },{threshold:.3});
 const statsEl=document.getElementById('stats');
 if(statsEl)cObs.observe(statsEl);
-
-// Test runner
-const trObs=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting){runTests();trObs.unobserve(e.target);}});
-},{threshold:.3});
-const trEl=document.querySelector('.test-runner');
-if(trEl)trObs.observe(trEl);
-
-function runTests(){
-  const tests=[
-    {id:'t1',ms:'0.31s'},{id:'t2',ms:'0.19s'},
-    {id:'t3',ms:'1.08s'},{id:'t4',ms:'0.92s'},
-    {id:'t5',ms:'0.14s'},{id:'t6',ms:'0.47s'},
-    {id:'t7',ms:'2.33s'},{id:'t8',ms:'1.87s'}
-  ];
-  let passed=0;
-  document.getElementById('trStatus').textContent='● Running…';
-  tests.forEach((t,i)=>{
-    setTimeout(()=>{
-      document.getElementById(t.id+'i').textContent='✅';
-      document.getElementById(t.id+'m').textContent=t.ms;
-      document.getElementById(t.id+'m').style.color='var(--green)';
-      passed++;
-      document.getElementById('trPassed').textContent=`Passed: ${passed}`;
-      document.getElementById('trFill').style.width=`${(passed/tests.length)*100}%`;
-      if(passed===tests.length){
-        const s=document.getElementById('trStatus');
-        s.textContent='✅ All Tests Passed';
-        s.style.background='rgba(34,197,94,.15)';
-        s.style.borderColor='rgba(34,197,94,.3)';
-      }
-    },i*480+400);
-  });
-}
 
 // Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
